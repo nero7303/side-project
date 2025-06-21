@@ -24,6 +24,9 @@
 }
 
 
+.wrap.active {
+  background: #fff;
+}
 
 
 
@@ -34,6 +37,25 @@ button {
   height: 40px;
   transition: .4s ease-in;
   font-weight: 600;
+  color: #333;
+
+}
+
+button.active {
+  background: #333;
+  color: #fff;
+}
+
+.wrap>div>button:nth-child(7).active {
+  background: #333;
+  color: #fff;
+
+}
+
+.wrap>div>button:nth-child(7):hover.active {
+  border: 2px solid #1472e6;
+  background: transparent;
+  color: #1472e6;
 
 }
 
@@ -158,6 +180,9 @@ button {
   color: #fff;
 }
 
+.btn07 {
+  transition: all 0.4s ease-in;
+}
 
 .btn07:hover {
   border: 2px solid #1472e6;
@@ -167,4 +192,40 @@ button {
 
 .btn08:hover {
   box-shadow: 5px 5px 5px red, 10px 10px 10px #1472e6, 15px 15px 20px greenyellow;
+}
+
+.toggleSwitch {
+  width: 100px;
+  height: 50px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: #fff;
+  box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
+  cursor: pointer;
+}
+
+.toggleSwitch .toggleButton {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #1472e6;
+}
+
+#toggle:checked~.toggleSwitch {
+  background: #1472e6;
+}
+
+#toggle:checked~.toggleSwitch .toggleButton {
+  left: calc(100% - 44px);
+  background: #fff;
+}
+
+.toggleSwitch,
+.toggleButton {
+  transition: all 0.4s;
 }
