@@ -203,6 +203,7 @@ button.active {
   background-color: #fff;
   box-shadow: 0 0 16px 3px rgba(0 0 0 / 15%);
   cursor: pointer;
+  margin: 20px 0 0 0;
 }
 
 .toggleSwitch .toggleButton {
