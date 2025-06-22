@@ -84,6 +84,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     animation: moveUpDown 3s infinite;
+    z-index: 3000;
 
 }
 
