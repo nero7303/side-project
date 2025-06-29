@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseEffect01</title>
+    <style>
+        @charset "UTF-8";
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        body {
+            background: url(./images/nature.jpg) no-repeat center;
+            background-size: cover;
+        }
+
+        #header {
+            color: #fff;
+            position: relative;
+        }
+
+        #header>ul {
+            position: absolute;
+            margin-top: 10px;
+        }
+
+        #header>ul>li {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #fff;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .mouse__wrap {
+            cursor: none;
+        }
+
+        .mouse__cursor {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            background-color: rgba(225, 225, 225, 0.1);
+            user-select: none;
+            pointer-events: none;
+            transition:
+                background-color 0.3s,
+                border-color 0.3s,
+                transform 0.6s,
+                boder-radius 0.3s,
+                border 0.3s;
+        }
+
+        .mouse__cursor.s1 {
+            background-color: rgba(151, 24, 24, 0.377);
+            border-color: rgba(231, 18, 18, 0.438);
+        }
+
+        .mouse__cursor.s2 {
+            background-color: rgba(151, 100, 24, 0.541);
+            border-color: rgba(231, 132, 18, 0.575);
+            transform: scale(2) rotateY(360deg);
+        }
+
+        .mouse__cursor.s3 {
+            background-color: rgba(151, 149, 24, 0.541);
+            border-color: rgba(227, 231, 18, 0.575);
+            transform: scale(1.5) rotateX(545deg);
+        }
+
+        .mouse__cursor.s4 {
+            background-color: rgba(54, 151, 24, 0.541);
+            border-color: rgba(18, 231, 64, 0.575);
+            transform: scale(10);
+        }
+
+        .mouse__cursor.s5 {
+            background-color: rgba(24, 126, 151, 0.541);
+            border-color: rgba(18, 164, 231, 0.575);
+            transform: skew(40deg);
+        }
+
+        .mouse__cursor.s6 {
+            background-color: rgba(26, 24, 151, 0.541);
+            border-color: rgba(18, 32, 231, 0.575);
+            transform: scale(0.3);
+        }
+
+        .mouse__cursor.s7 {
+            background-color: rgba(151, 24, 140, 0.541);
+            border-color: rgba(231, 18, 178, 0.575);
+            transform: scale(10);
+            border-radius: 0px;
+        }
+
+        .mouse__cursor.s8 {
+            background-color: rgba(104, 24, 151, 0.541);
+            border-color: rgba(181, 18, 231, 0.575);
+            transform: scale(10) skew(140deg) rotate(200deg);
+            border-radius: 0px;
+        }
+
+        #main {
+            position: relative;
+        }
+
+        .mouse__text {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+
+        .mouse__text p {
+            font-size: 2vw;
+            line-height: 1.9;
+        }
+
+        .mouse__text p:last-child {
+            font-size: 3vw;
+        }
+
+        .mouse__text p span {
+            color: #fff;
+            border-bottom: 1px dashed #fff;
+        }
+
+        .mouse__info {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <h1>Javascript Mouse Effect01</h1>
+        <p>마우스 이펙트 - 마우스 따라다니기</p>
+        <ul>
+            <li class="active"><a href="./mouse01.html">1</a></li>
+            <li><a href="mouseEffect02.html">2</a></li>
+            <li><a href="mouseEffect03.html">3</a></li>
+            <li><a href="mouseEffect04.html">4</a></li>
+            <li><a href="mouseEffect05.html">5</a></li>
+            <li><a href="mouseEffect06.html">6</a></li>
+        </ul>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="mouse__wrap">
+            <div class="mouse__cursor"></div>
+            <div class="mouse__text">
+                <p>Rather than <span class="s1">regretting</span> <span class="s2"> yesterday</span>, let us <span
+                        class="s3">work</span> for <span class="s4">tomorrow.</span></p>
+                <p><span class="s5">어제</span>를 <span class="s6">후회</span>하기 보다는 <span class="s7">내일</span>을 위해 <span
+                        class="s8">노력</span>하라.</p>
+            </div>
+        </div>
+        <div class="mouse__info">
+            <ul>
+                <li>clientX : <span class="clientX">0</span>px</li>
+                <li>clientY : <span class="clientY">0</span>px</li>
+                <li>offsetX : <span class="offsetX">0</span>px</li>
+                <li>offsetY : <span class="offsetY">0</span>px</li>
+                <li>pageX : <span class="pageX">0</span>px</li>
+                <li>pageY : <span class="pageY">0</span>px</li>
+                <li>screenX : <span class="screenX">0</span>px</li>
+                <li>screenY : <span class="screenY">0</span>px</li>
+            </ul>
+        </div>
+    </main>
+    <!-- //main -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
